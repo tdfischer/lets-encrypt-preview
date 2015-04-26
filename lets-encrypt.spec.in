@@ -5,7 +5,8 @@
 Name:           lets-encrypt
 Version:        <GIT-TAG>
 Release:        1%{?dist}
-Summary:        Let's Encrypt!
+Summary:        Let's Encrypt is a free, automated certificate authority that aims to lower the barriers to entry for encrypting all HTTP traffic on the internet.
+
 
 License:        MIT
 URL:            https://letsencrypt.org/
@@ -15,7 +16,8 @@ BuildArch:      noarch
 BuildRequires:  python-devel
 
 %description
-
+Description: Let's Encrypt is a free, automated certificate authority that aims
+to lower the barriers to entry for encrypting all HTTP traffic on the internet.
 
 %prep
 %setup -q
