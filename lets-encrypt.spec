@@ -1,4 +1,4 @@
-%global         revision <GIT-TAG>
+%global         revision 1d8281d
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
 Name:           lets-encrypt
@@ -12,7 +12,7 @@ URL:            https://letsencrypt.org/
 Source0:        %{name}-%{revision}.tar.xz
 
 BuildArch:      noarch
-BuildRequires:  python-devel
+BuildRequires:  python-devel python-setuptools
 
 %description
 Let's Encrypt is a free, automated certificate authority that aims
@@ -38,5 +38,5 @@ CFLAGS="$RPM_OPT_FLAGS" %{__python} setup.py build
 %{_bindir}/letsencrypt
 
 %changelog
-* Sun Apr 26 2015 Torrie Fischer <tdfischer@hackerbots.net> 0-1.git16a63fe.fc20
+* Sun Apr 26 2015 Torrie Fischer <tdfischer@hackerbots.net> 0-1.git1d8281d.fc20
 - Initial package
