@@ -1,26 +1,25 @@
-# sitelib for noarch packages, sitearch for others (remove the unneeded one)
+%global         revision <GIT-TAG>
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
-%{!?python_sitearch: %global python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(1))")}
 
 Name:           lets-encrypt
-Version:        <GIT-TAG>
-Release:        1%{?dist}
-Summary:        Let's Encrypt is a free, automated certificate authority that aims to lower the barriers to entry for encrypting all HTTP traffic on the internet.
+Version:        0
+Release:        1.git%{revision}%{?dist}
+Summary:        A free, automated certificate authority
 
 
-License:        MIT
+License:        ASL
 URL:            https://letsencrypt.org/
-Source0:        %{name}-%{version}.tar.xz
+Source0:        %{name}-%{revision}.tar.xz
 
 BuildArch:      noarch
 BuildRequires:  python-devel
 
 %description
-Description: Let's Encrypt is a free, automated certificate authority that aims
+Let's Encrypt is a free, automated certificate authority that aims
 to lower the barriers to entry for encrypting all HTTP traffic on the internet.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{revision}
 
 
 %build
@@ -29,17 +28,15 @@ CFLAGS="$RPM_OPT_FLAGS" %{__python} setup.py build
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %{__python} setup.py install -O1 --skip-build --root $RPM_BUILD_ROOT
 
  
 %files
-%doc
-# For noarch packages: sitelib
+%doc LICENSE.txt
 %{python_sitelib}/*
 %{_bindir}/jws
 %{_bindir}/letsencrypt
 
 %changelog
-* Sun Apr 26 2015 Torrie Fischer <tdfischer@hackerbots.net>
+* Sun Apr 26 2015 Torrie Fischer <tdfischer@hackerbots.net> 0-git04fb4f1.1.fc20
 - Initial package
