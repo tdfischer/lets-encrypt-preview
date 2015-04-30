@@ -38,5 +38,5 @@ CFLAGS="$RPM_OPT_FLAGS" %{__python} setup.py build
 %{_bindir}/letsencrypt
 
 %changelog
-* Sun Apr 26 2015 Torrie Fischer <tdfischer@hackerbots.net> 0-git04fb4f1.1.fc20
+* Sun Apr 26 2015 Torrie Fischer <tdfischer@hackerbots.net> 0-1.git16a63fe.fc20
 - Initial package

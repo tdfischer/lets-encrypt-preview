@@ -8,3 +8,4 @@ sed -e "s/<GIT-TAG>/$tag/" < lets-encrypt.spec.in > lets-encrypt-$tag/lets-encry
 tar rf $archive lets-encrypt-$tag/
 cat $archive | xz > $archive.xz
 rpmbuild -tb $archive
+rpmbuild -ts $archive
