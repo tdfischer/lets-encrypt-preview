@@ -1,6 +1,6 @@
 #!/bin/bash
 tag=$1
-archive=lets-encrypt-$tag.tar
+archive=letsencrypt-$tag.tar
 
-git archive --prefix=lets-encrypt-$tag/ $1 > $archive
+git archive --prefix=letsencrypt-$tag/ $1 > $archive
 xz > $archive.xz < $archive

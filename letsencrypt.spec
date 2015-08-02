@@ -1,7 +1,7 @@
 %global         revision d045f7c
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
-Name:           lets-encrypt
+Name:           letsencrypt
 Version:        0
 Release:        1.git%{revision}%{?dist}
 Summary:        A free, automated certificate authority
